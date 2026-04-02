@@ -1,34 +1,13 @@
 # Dead Reckoning
 
-An archaeological portfolio site. GitHub repositories excavated, catalogued, and presented as ancient artifacts recovered from the field.
+Your GitHub profile, reimagined as an active archaeological excavation.
 
-Built with React, TypeScript, and Vite.
+Repositories surface as catalogued field specimens — each one assessed for material composition, condition rating, and recovery depth. Artifact descriptions are written in the voice of a dry, overly serious field researcher who has never once touched a computer.
 
-## What it does
+**[deadreckoning.berkguzeyer.com](https://deadreckoning.berkguzeyer.com)**
 
-Fetches your pinned GitHub repositories and renders them as specimen catalog entries — complete with excavation dates, material composition, condition ratings, recovery depth, and lab analysis reports. Artifact descriptions are generated via Claude API if a key is configured, or derived locally from README content if not.
+---
 
-## Setup
+Paste any GitHub username into the Open Field Survey at the bottom of the page to generate a field report for any developer's profile.
 
-```bash
-npm install
-npm run dev
-```
-
-Create a `.env` file from `.env.example` and fill in your tokens:
-
-```env
-VITE_GITHUB_TOKEN=        # GitHub personal access token (enables pinned repos via GraphQL)
-VITE_ANTHROPIC_API_KEY=   # Optional — enables AI-generated catalog entries
-VITE_CLAUDE_PROXY_URL=    # Optional — proxy URL if you don't want direct browser API access
-```
-
-Both tokens are optional. Without a GitHub token, the site falls back to seed artifact data. Without an Anthropic key, catalog entries are generated locally from README content.
-
-## Stack
-
-- React + TypeScript
-- Vite
-- GSAP for animations
-- GitHub REST + GraphQL APIs
-- Claude API (optional)
+Built with React, TypeScript, GSAP, and an unreasonable commitment to the bit.
