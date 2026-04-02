@@ -1,73 +1,34 @@
-# React + TypeScript + Vite
+# Dead Reckoning
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An archaeological portfolio site. GitHub repositories excavated, catalogued, and presented as ancient artifacts recovered from the field.
 
-Currently, two official plugins are available:
+Built with React, TypeScript, and Vite.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## What it does
 
-## React Compiler
+Fetches your pinned GitHub repositories and renders them as specimen catalog entries — complete with excavation dates, material composition, condition ratings, recovery depth, and lab analysis reports. Artifact descriptions are generated via Claude API if a key is configured, or derived locally from README content if not.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Setup
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Create a `.env` file from `.env.example` and fill in your tokens:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```env
+VITE_GITHUB_TOKEN=        # GitHub personal access token (enables pinned repos via GraphQL)
+VITE_ANTHROPIC_API_KEY=   # Optional — enables AI-generated catalog entries
+VITE_CLAUDE_PROXY_URL=    # Optional — proxy URL if you don't want direct browser API access
 ```
+
+Both tokens are optional. Without a GitHub token, the site falls back to seed artifact data. Without an Anthropic key, catalog entries are generated locally from README content.
+
+## Stack
+
+- React + TypeScript
+- Vite
+- GSAP for animations
+- GitHub REST + GraphQL APIs
+- Claude API (optional)
