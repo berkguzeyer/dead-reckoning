@@ -42,7 +42,7 @@ export default function ResearcherProfile() {
 
           <div className={styles.row}>
             <span className={styles.fieldName}>CLASSIFICATION</span>
-            <span className={styles.fieldValue}>Frontend Software Engineer</span>
+            <span className={styles.fieldValue}>Senior Software Engineer</span>
           </div>
 
           <div className={styles.row}>

@@ -108,7 +108,7 @@ function App() {
                 All specimens catalogued under open-source preservation protocols.
               </span>
               <span>
-                Site maintained by Berk Guzeyer — Frontend Software Engineer.
+                Site maintained by Berk Guzeyer — Senior Software Engineer.
               </span>
             </div>
             <div className="footer-bottom">
