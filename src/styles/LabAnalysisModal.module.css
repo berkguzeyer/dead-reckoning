@@ -1,0 +1,206 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(26, 15, 5, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  background: #F5F0E1;
+  border: 3px solid #3B2F2F;
+  max-width: 680px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow:
+    6px 6px 0 #3B2F2F,
+    inset 0 0 40px rgba(92, 64, 51, 0.06);
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: 1px solid #3B2F2F;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.9rem;
+  color: #3B2F2F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.closeBtn:hover {
+  background: #3B2F2F;
+  color: #F5F0E1;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.5rem 2rem 1rem;
+}
+
+.headerLeft {
+  flex: 1;
+}
+
+.labLabel {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  color: #FF6600;
+  text-transform: uppercase;
+}
+
+.title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1A0F05;
+  margin: 0.3rem 0 0;
+}
+
+.headerShape {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+.divider {
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    #3B2F2F,
+    #3B2F2F 8px,
+    transparent 8px,
+    transparent 12px
+  );
+  margin: 0 2rem;
+}
+
+.body {
+  padding: 1.5rem 2rem;
+}
+
+.section {
+  margin-bottom: 1.5rem;
+}
+
+.sectionTitle {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: #8B6914;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid rgba(139, 105, 20, 0.3);
+}
+
+.catalogText {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #4A3728;
+  font-style: italic;
+  margin: 0;
+}
+
+.gridSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 2rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(59, 47, 47, 0.04);
+  border: 1px solid rgba(59, 47, 47, 0.1);
+}
+
+.dataField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.dataLabel {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: #8B6914;
+  text-transform: uppercase;
+}
+
+.dataValue {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.8rem;
+  color: #3B2F2F;
+}
+
+.topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.topicTag {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.65rem;
+  background: #3B2F2F;
+  color: #F5F0E1;
+  padding: 0.2rem 0.6rem;
+  letter-spacing: 0.05em;
+}
+
+.archiveLink {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.8rem;
+  color: #FF6600;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.archiveLink:hover {
+  border-bottom-color: #FF6600;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  border-top: 2px solid #3B2F2F;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.15em;
+  color: rgba(59, 47, 47, 0.5);
+  text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+  .modal {
+    margin: 1rem;
+  }
+
+  .gridSection {
+    grid-template-columns: 1fr;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+}

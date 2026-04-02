@@ -1,0 +1,109 @@
+.container {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: all;
+}
+
+.soilLayer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+
+.soilTexture {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.layer1 {
+  z-index: 5;
+  background: #1a0f05;
+}
+.layer1 .soilTexture {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(139, 105, 20, 0.08) 3px,
+      rgba(139, 105, 20, 0.08) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 7px,
+      rgba(92, 64, 51, 0.06) 7px,
+      rgba(92, 64, 51, 0.06) 8px
+    );
+}
+
+.layer2 {
+  z-index: 4;
+  background: #2f1e0e;
+}
+.layer2 .soilTexture {
+  background:
+    radial-gradient(ellipse 2px 2px at 20% 30%, rgba(196, 163, 90, 0.15), transparent),
+    radial-gradient(ellipse 3px 2px at 60% 70%, rgba(196, 163, 90, 0.1), transparent),
+    radial-gradient(ellipse 1px 3px at 80% 20%, rgba(196, 163, 90, 0.12), transparent);
+}
+
+.layer3 {
+  z-index: 3;
+  background: #3b2f2f;
+}
+.layer3 .soilTexture {
+  background:
+    repeating-linear-gradient(
+      175deg,
+      transparent,
+      transparent 5px,
+      rgba(107, 68, 35, 0.1) 5px,
+      rgba(107, 68, 35, 0.1) 6px
+    );
+}
+
+.layer4 {
+  z-index: 2;
+  background: #4a3728;
+}
+.layer4 .soilTexture {
+  background:
+    radial-gradient(circle 1px at 10% 50%, rgba(196, 163, 90, 0.2), transparent),
+    radial-gradient(circle 1.5px at 40% 30%, rgba(196, 163, 90, 0.15), transparent),
+    radial-gradient(circle 1px at 70% 60%, rgba(196, 163, 90, 0.18), transparent),
+    radial-gradient(circle 2px at 90% 80%, rgba(196, 163, 90, 0.12), transparent);
+}
+
+.layer5 {
+  z-index: 1;
+  background: #5c4033;
+}
+
+.loadingText {
+  position: relative;
+  z-index: 10;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(196, 163, 90, 0.6);
+}
+
+.dots {
+  animation: blink 1s steps(3) infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 0; }
+  33% { opacity: 0.3; }
+  66% { opacity: 0.6; }
+  100% { opacity: 1; }
+}

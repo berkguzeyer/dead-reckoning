@@ -1,0 +1,111 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.particleCanvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.classified {
+  position: relative;
+  z-index: 1;
+  background: #0A0A0A;
+  border: 2px solid #FF6600;
+  max-width: 500px;
+  width: 90%;
+  padding: 2rem;
+  box-shadow:
+    0 0 30px rgba(255, 102, 0, 0.15),
+    inset 0 0 30px rgba(255, 102, 0, 0.05);
+}
+
+.topSecret {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.stampRotated {
+  display: inline-block;
+  font-family: 'Courier Prime', monospace;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #FF0000;
+  border: 4px solid #FF0000;
+  padding: 0.3rem 1.5rem;
+  transform: rotate(-5deg);
+  letter-spacing: 0.3em;
+  opacity: 0.8;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+}
+
+.title {
+  font-family: 'Courier Prime', monospace;
+  font-size: 1.1rem;
+  color: #FF6600;
+  text-align: center;
+  margin: 0 0 1.5rem;
+  letter-spacing: 0.1em;
+}
+
+.redactedContent {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: rgba(245, 240, 225, 0.6);
+}
+
+.redactedContent p {
+  margin: 0 0 1rem;
+}
+
+.warning {
+  color: #FF6600 !important;
+  text-align: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  animation: warningFlash 2s ease-in-out infinite;
+}
+
+@keyframes warningFlash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 102, 0, 0.3);
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  color: rgba(245, 240, 225, 0.3);
+}
+
+.closeBtn {
+  display: block;
+  margin: 1.5rem auto 0;
+  background: none;
+  border: 1px solid #FF6600;
+  color: #FF6600;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.closeBtn:hover {
+  background: #FF6600;
+  color: #0A0A0A;
+}

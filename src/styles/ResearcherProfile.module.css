@@ -1,0 +1,150 @@
+.section {
+  padding: 4rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.dossier {
+  background: #F5F0E1;
+  border: 3px solid #3B2F2F;
+  max-width: 550px;
+  width: 90%;
+  box-shadow: 4px 4px 0 #3B2F2F;
+  position: relative;
+}
+
+.dossier::before {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border: 1px dashed rgba(59, 47, 47, 0.25);
+  pointer-events: none;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+}
+
+.label {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: #8B6914;
+  text-transform: uppercase;
+}
+
+.classification {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  color: rgba(59, 47, 47, 0.4);
+}
+
+.divider {
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    #3B2F2F,
+    #3B2F2F 6px,
+    transparent 6px,
+    transparent 10px
+  );
+  margin: 0 1.5rem;
+}
+
+.content {
+  padding: 1.25rem 1.5rem;
+}
+
+.row {
+  margin-bottom: 1rem;
+}
+
+.row:last-child {
+  margin-bottom: 0;
+}
+
+.fieldName {
+  display: block;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: #8B6914;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+
+.fieldValue {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.85rem;
+  color: #3B2F2F;
+  line-height: 1.4;
+}
+
+.primaryName {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1A0F05;
+}
+
+.specList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.2rem;
+}
+
+.specTag {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.65rem;
+  background: #3B2F2F;
+  color: #F5F0E1;
+  padding: 0.15rem 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.statusActive {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #4A7C3F;
+}
+
+.statusDot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4A7C3F;
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.signatureBlock {
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+}
+
+.signature {
+  width: 200px;
+  height: 40px;
+}
+
+.signatureLabel {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.2em;
+  color: rgba(59, 47, 47, 0.4);
+  text-transform: uppercase;
+}

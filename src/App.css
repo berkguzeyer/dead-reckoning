@@ -1,0 +1,284 @@
+/* ========================================
+   DEAD RECKONING — Global Styles
+   ======================================== */
+
+/* Custom cursor — crosshair */
+.dead-reckoning {
+  cursor: crosshair;
+}
+
+/* Brush cursor on interactive elements */
+.dead-reckoning button,
+.dead-reckoning a,
+.dead-reckoning [role="button"] {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z' fill='%238B6914' opacity='0.8'/%3E%3C/svg%3E") 2 22, pointer;
+}
+
+/* Three.js canvas background */
+.strata-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.strata-background canvas {
+  display: block;
+}
+
+/* Grid paper overlay */
+.grid-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 24px,
+      rgba(180, 200, 220, 0.04) 24px,
+      rgba(180, 200, 220, 0.04) 25px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 24px,
+      rgba(180, 200, 220, 0.04) 24px,
+      rgba(180, 200, 220, 0.04) 25px
+    );
+}
+
+/* Noise/grain texture */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.12;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* Main content */
+.site-content {
+  position: relative;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.8s ease 0.2s;
+  min-height: 100vh;
+  padding-left: 100px;
+  padding-right: 120px;
+}
+
+.site-content.revealed {
+  opacity: 1;
+}
+
+/* Site header */
+.site-header {
+  padding: 6rem 2rem 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header-stamp {
+  background: rgba(245, 240, 225, 0.04);
+  border: 1px solid rgba(196, 163, 90, 0.15);
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.header-stamp::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px dashed rgba(196, 163, 90, 0.1);
+  pointer-events: none;
+}
+
+.header-label {
+  display: block;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  color: rgba(196, 163, 90, 0.5);
+  margin-bottom: 0.75rem;
+}
+
+.site-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #F5F0E1;
+  margin: 0;
+  letter-spacing: 0.02em;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.header-sub {
+  display: block;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: rgba(255, 102, 0, 0.6);
+  margin-top: 0.75rem;
+}
+
+.header-meta {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  color: rgba(196, 163, 90, 0.35);
+}
+
+/* Artifacts section */
+.artifacts-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid rgba(196, 163, 90, 0.15);
+}
+
+.section-label {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  color: rgba(196, 163, 90, 0.5);
+}
+
+.section-count {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: rgba(255, 102, 0, 0.5);
+}
+
+/* Loading state */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 4rem 0;
+}
+
+.loading-spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgba(196, 163, 90, 0.2);
+  border-top-color: #FF6600;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 0.75rem;
+  color: rgba(196, 163, 90, 0.5);
+  letter-spacing: 0.1em;
+}
+
+/* Artifacts list */
+.artifacts-list {
+  padding: 1rem 0;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid rgba(196, 163, 90, 0.1);
+  padding: 3rem 2rem;
+  margin-top: 2rem;
+}
+
+.footer-inner {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-stamp {
+  margin-bottom: 1.5rem;
+}
+
+.footer-title {
+  display: block;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(245, 240, 225, 0.6);
+  letter-spacing: 0.1em;
+}
+
+.footer-sub {
+  display: block;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: rgba(196, 163, 90, 0.3);
+  margin-top: 0.25rem;
+}
+
+.footer-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 0.65rem;
+  color: rgba(196, 163, 90, 0.35);
+  line-height: 1.5;
+}
+
+.footer-bottom {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.2em;
+  color: rgba(196, 163, 90, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .site-content {
+    padding-left: 2.5rem;
+    padding-right: 1rem;
+  }
+
+  .site-title {
+    font-size: 2.2rem;
+  }
+
+  .header-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .site-title {
+    font-size: 1.8rem;
+  }
+}

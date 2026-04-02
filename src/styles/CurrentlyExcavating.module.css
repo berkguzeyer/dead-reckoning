@@ -1,0 +1,124 @@
+.section {
+  padding: 3rem 0 6rem;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.cautionTape,
+.cautionTapeBottom {
+  overflow: hidden;
+  transform: rotate(-1deg);
+}
+
+.cautionTapeBottom {
+  transform: rotate(1deg);
+}
+
+.tapeStrip {
+  width: 120%;
+  margin-left: -10%;
+  height: 30px;
+}
+
+.digSite {
+  padding: 2.5rem 2rem;
+  position: relative;
+  background:
+    radial-gradient(ellipse at 30% 50%, rgba(92, 64, 51, 0.15), transparent),
+    radial-gradient(ellipse at 70% 30%, rgba(74, 55, 40, 0.1), transparent);
+  border-left: 2px solid rgba(196, 163, 90, 0.2);
+  border-right: 2px solid rgba(196, 163, 90, 0.2);
+}
+
+.soilArea {
+  position: relative;
+  height: 80px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  border: 1px dashed rgba(196, 163, 90, 0.3);
+}
+
+.soilTexture {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(92, 64, 51, 0.08) 2px,
+      rgba(92, 64, 51, 0.08) 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 4px,
+      rgba(74, 55, 40, 0.05) 4px,
+      rgba(74, 55, 40, 0.05) 5px
+    );
+}
+
+.partialArtifact {
+  position: absolute;
+  bottom: 5px;
+  left: 20%;
+  width: 100px;
+  opacity: 0.6;
+}
+
+.partialSVG {
+  width: 100%;
+}
+
+.siteInfo {
+  text-align: center;
+}
+
+.amberLight {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.amberDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #FF9900;
+  animation: amberBlink 1.5s ease-in-out infinite;
+  box-shadow: 0 0 12px rgba(255, 153, 0, 0.6);
+}
+
+@keyframes amberBlink {
+  0%, 100% { opacity: 1; box-shadow: 0 0 12px rgba(255, 153, 0, 0.6); }
+  50% { opacity: 0.3; box-shadow: 0 0 4px rgba(255, 153, 0, 0.2); }
+}
+
+.siteTitle {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #F5F0E1;
+  margin: 0 0 0.75rem;
+}
+
+.siteText {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: rgba(196, 163, 90, 0.6);
+  max-width: 450px;
+  margin: 0 auto 1rem;
+}
+
+.siteLabel {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: rgba(255, 102, 0, 0.5);
+  text-transform: uppercase;
+}

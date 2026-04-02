@@ -1,0 +1,93 @@
+/* ========================================
+   DEAD RECKONING — Base Styles
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700;900&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  /* Earth palette */
+  --earth-dark: #1A0F05;
+  --earth-deep: #2F1E0E;
+  --raw-umber: #5C4033;
+  --burnt-sienna: #6B4423;
+  --dark-gold: #8B6914;
+  --bone-white: #F5F0E1;
+  --ink-black: #0A0A0A;
+  --faded-olive: #4A5D23;
+  --emergency-orange: #FF6600;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--earth-dark);
+  color: var(--bone-white);
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(139, 105, 20, 0.4);
+  color: var(--bone-white);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--earth-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--raw-umber);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--burnt-sienna);
+}
+
+/* Base typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--emergency-orange);
+  text-decoration: none;
+}
+
+button {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+}

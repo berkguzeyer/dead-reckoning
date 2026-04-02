@@ -1,0 +1,227 @@
+.card {
+  position: relative;
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  margin-bottom: 4rem;
+  cursor: pointer;
+  perspective: 800px;
+  transition: transform 0.3s ease;
+  max-width: 750px;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.cardLeft {
+  margin-left: 5%;
+  flex-direction: row;
+}
+
+.cardRight {
+  margin-left: auto;
+  margin-right: 5%;
+  flex-direction: row-reverse;
+}
+
+.artifactShape {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  transform-style: preserve-3d;
+  will-change: transform;
+  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.3));
+}
+
+.specimenLabel {
+  flex: 1;
+  background: #F5F0E1;
+  border: 2px solid #3B2F2F;
+  padding: 1.25rem 1.5rem;
+  position: relative;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  box-shadow:
+    3px 3px 0 #3B2F2F,
+    inset 0 0 30px rgba(92, 64, 51, 0.08);
+}
+
+/* Stamped border effect */
+.specimenLabel::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px dashed rgba(59, 47, 47, 0.3);
+  pointer-events: none;
+}
+
+.labelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(59, 47, 47, 0.2);
+}
+
+.specimenId {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: #8B6914;
+  text-transform: uppercase;
+}
+
+.pinnedBadge {
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: #F5F0E1;
+  background: #3B2F2F;
+  padding: 0.15rem 0.5rem;
+  text-transform: uppercase;
+}
+
+.artifactName {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1A0F05;
+  margin: 0.5rem 0;
+  letter-spacing: 0.02em;
+}
+
+.labelGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 1.5rem;
+  margin: 0.75rem 0;
+}
+
+.labelField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.fieldLabel {
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: #8B6914;
+  text-transform: uppercase;
+}
+
+.fieldValue {
+  font-size: 0.75rem;
+  color: #3B2F2F;
+  line-height: 1.3;
+}
+
+.catalogEntry {
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: #4A3728;
+  margin: 0.75rem 0;
+  font-style: italic;
+  border-left: 2px solid #8B6914;
+  padding-left: 0.75rem;
+}
+
+.labelFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(59, 47, 47, 0.2);
+}
+
+.siteRef {
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  color: rgba(59, 47, 47, 0.5);
+  text-transform: uppercase;
+}
+
+.clickHint {
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: #FF6600;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .clickHint {
+  opacity: 1;
+}
+
+/* Field note slide-in */
+.fieldNote {
+  position: absolute;
+  top: 1rem;
+  width: 200px;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all 0.35s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.cardLeft .fieldNote {
+  right: -220px;
+}
+
+.cardRight .fieldNote {
+  left: -220px;
+  transform: translateX(-20px);
+}
+
+.fieldNoteVisible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fieldNoteContent {
+  background: rgba(245, 240, 225, 0.92);
+  border: 1px solid #8B6914;
+  padding: 0.75rem;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 0.65rem;
+  line-height: 1.5;
+  color: #4A3728;
+  transform: rotate(-1deg);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.fieldNoteLabel {
+  display: block;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: #8B6914;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(139, 105, 20, 0.3);
+  padding-bottom: 0.3rem;
+}
+
+.fieldNoteLanguage {
+  margin-top: 0.3rem;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .card {
+    flex-direction: column !important;
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+    max-width: 100%;
+  }
+
+  .artifactShape {
+    width: 80px;
+    height: 80px;
+  }
+
+  .fieldNote {
+    display: none;
+  }
+}
