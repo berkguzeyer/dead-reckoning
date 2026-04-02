@@ -6,6 +6,7 @@ import StrataLabels from './components/StrataLabels';
 import ArtifactCard from './components/ArtifactCard';
 import ResearcherProfile from './components/ResearcherProfile';
 import CurrentlyExcavating from './components/CurrentlyExcavating';
+import GuestExcavation from './components/GuestExcavation';
 import EasterEgg from './components/EasterEgg';
 import AmbientAudio from './components/AmbientAudio';
 import { useArtifacts } from './hooks/useArtifacts';
@@ -95,6 +96,9 @@ function App() {
 
         {/* Currently Excavating */}
         <CurrentlyExcavating />
+
+        {/* Guest excavation */}
+        <GuestExcavation />
 
         {/* Footer */}
         <footer className="site-footer">

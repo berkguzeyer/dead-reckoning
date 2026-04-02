@@ -10,11 +10,42 @@ const ARTIFACT_SHAPES: ArtifactShape[] = [
 
 const DEPTHS = ['0.3m', '0.8m', '1.5m', '2.4m', '3.8m', '5.2m'];
 
-function getMaterialComposition(language: string | null): string {
+export function getMaterialComposition(language: string | null, content: string = ''): string {
+  const lower = content.toLowerCase();
+
+  if (lower.includes('next.js') || lower.includes('nextjs')) return 'Next.js Full-Stack Compound';
+  if (lower.includes('react') && (lower.includes('typescript') || lower.includes('.tsx'))) return 'React + TypeScript Stratum';
+  if (lower.includes('react') && lower.includes('vite')) return 'React + Vite Formation';
+  if (lower.includes('react')) return 'React Component Stratum';
+  if (lower.includes('vue')) return 'Vue.js Reactive Layer';
+  if (lower.includes('angular')) return 'Angular Composite, Dependency-Injected';
+  if (lower.includes('svelte')) return 'Svelte Compiled Formation';
+  if (lower.includes('django')) return 'Python/Django Sedimentary Layer';
+  if (lower.includes('fastapi')) return 'Python FastAPI Deposit';
+  if (lower.includes('flask')) return 'Python Flask Stratum, Micro-Grade';
+  if (lower.includes('rails') || lower.includes('ruby on rails')) return 'Ruby on Rails Formation';
+  if (lower.includes('spring boot') || lower.includes('spring framework')) return 'Java Spring Limestone Compound';
+  if (lower.includes('express') || lower.includes('node.js') || lower.includes('nodejs')) return 'Node.js Runtime Formation';
+  if (lower.includes('pytorch') || lower.includes('tensorflow') || lower.includes('keras')) return 'Neural Inference Composite';
+  if (lower.includes('flutter')) return 'Flutter Cross-Platform Stratum';
+  if (lower.includes('tailwind')) return 'Tailwind CSS Utility Layer';
+  if (lower.includes('supabase') || lower.includes('firebase') || lower.includes('postgres')) return 'Cloud-Persisted Data Compound';
+
   switch (language) {
     case 'TypeScript': return 'Compressed Logic Stratum, Type IV';
     case 'JavaScript': return 'Unrefined Script Sediment';
     case 'Python': return 'Serpentine Logic Formation';
+    case 'Rust': return 'Memory-Safe Iron Formation';
+    case 'Go': return 'Go Concurrent Alloy';
+    case 'Java': return 'Java Bytecode Limestone';
+    case 'Ruby': return 'Ruby Gem-Studded Formation';
+    case 'Swift': return 'Swift Native Apple Stratum';
+    case 'Kotlin': return 'Kotlin JVM Composite';
+    case 'C': return 'C Primitive Bedrock';
+    case 'C++': return 'C++ Stratified Alloy';
+    case 'C#': return '.NET Composite, Microsoft-Grade';
+    case 'PHP': return 'PHP Sediment, Legacy-Adjacent';
+    case 'Shell': return 'Shell Script Formation';
     default: return 'Composite Unknown Material';
   }
 }
@@ -77,7 +108,7 @@ export async function fetchPinnedRepos(): Promise<PinnedRepo[]> {
   }
 }
 
-export async function fetchRepos(): Promise<GitHubRepo[]> {
+export async function fetchRepos(username: string = GITHUB_USERNAME): Promise<GitHubRepo[]> {
   try {
     const headers: Record<string, string> = {
       'Accept': 'application/vnd.github.v3+json',
@@ -86,7 +117,7 @@ export async function fetchRepos(): Promise<GitHubRepo[]> {
     if (token) headers['Authorization'] = `token ${token}`;
 
     const response = await fetch(
-      `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=15`,
+      `https://api.github.com/users/${username}/repos?sort=updated&per_page=15`,
       { headers }
     );
     if (!response.ok) return [];
@@ -96,11 +127,11 @@ export async function fetchRepos(): Promise<GitHubRepo[]> {
   }
 }
 
-export async function fetchReadme(repoName: string): Promise<string | null> {
+export async function fetchReadme(repoName: string, username: string = GITHUB_USERNAME): Promise<string | null> {
   for (const branch of ['main', 'master']) {
     try {
       const response = await fetch(
-        `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${repoName}/${branch}/README.md`
+        `https://raw.githubusercontent.com/${username}/${repoName}/${branch}/README.md`
       );
       if (response.ok) return await response.text();
     } catch {
@@ -189,7 +220,7 @@ export async function buildArtifacts(
       catalogEntry,
       url: repo.url,
       language: repo.primaryLanguage?.name || 'Unknown',
-      materialComposition: getMaterialComposition(repo.primaryLanguage?.name || null),
+      materialComposition: getMaterialComposition(repo.primaryLanguage?.name || null, contentForClaude),
       stars: repo.stargazerCount,
       conditionRating: getConditionRating(repo.stargazerCount),
       updatedAt: repo.updatedAt,
@@ -224,7 +255,7 @@ export async function buildArtifacts(
       catalogEntry,
       url: repo.html_url,
       language: repo.language || 'Unknown',
-      materialComposition: getMaterialComposition(repo.language || null),
+      materialComposition: getMaterialComposition(repo.language || null, contentForClaude),
       stars: repo.stargazers_count,
       conditionRating: getConditionRating(repo.stargazers_count),
       updatedAt: repo.updated_at,
