@@ -7,19 +7,15 @@ export default function ResearcherProfile() {
     fieldExperience: number;
     specializations: string[];
   }>({
-    fieldExperience: 5,
+    fieldExperience: 8,
     specializations: ['TypeScript', 'JavaScript', 'React', 'Python'],
   });
 
   useEffect(() => {
     fetchUserProfile().then((data) => {
       if (data) {
-        const created = new Date(data.createdAt);
-        const years = Math.floor(
-          (Date.now() - created.getTime()) / (1000 * 60 * 60 * 24 * 365.25)
-        );
         setProfile({
-          fieldExperience: years,
+          fieldExperience: 8,
           specializations: data.languages.length > 0 ? data.languages : profile.specializations,
         });
       }
